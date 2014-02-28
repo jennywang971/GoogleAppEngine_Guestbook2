@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<servlet>
+		<servlet-name>TestAppEngineProject</servlet-name>
+		<servlet-class>ca.appengine.project.test.TestAppEngineProjectServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TestAppEngineProject</servlet-name>
+		<url-pattern>/testappengineproject</url-pattern>
+	</servlet-mapping>
+	<servlet>
+        <servlet-name>sign</servlet-name>
+        <servlet-class>ca.appengine.project.test.SignGuestbookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sign</servlet-name>
+        <url-pattern>/sign/*</url-pattern>
+    </servlet-mapping>
+	<servlet>
+        <servlet-name>queryprocessor</servlet-name>
+        <servlet-class>ca.appengine.project.test.QueryProcessorServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>queryprocessor</servlet-name>
+        <url-pattern>/queryprocessor/*</url-pattern>
+    </servlet-mapping>
+	<welcome-file-list>
+		<!-- <welcome-file>index.html</welcome-file> -->
+		<welcome-file>testapp.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
