@@ -38,8 +38,8 @@
 						
 			var mrkID = "0";
 			var gstBkNm = guestbookNameString; //"default";
-			var msgbox = "msgbox_";	
-			var msglist = "msglist_";
+			var msgbox = "msgbox_" + mrkID;	
+			var msglist = "msglist_" + mrkID;
 									
 			var contentString  = '#' + mrkID + '<div id="content">' +  	
 			  '<div class="msglist" id="'+ msglist +'"></div>' + '</div>' +
