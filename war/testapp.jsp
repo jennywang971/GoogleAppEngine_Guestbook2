@@ -20,7 +20,7 @@
     <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
     <script type="text/javascript" src="/javascripts/main.js"></script>        
     <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRGbXGObx5kT3jpY7DgeDgPpzgNrPm8gM&sensor=true">
+      src="https://maps.googleapis.com/maps/api/js?v=3&key=&sensor=true">
     </script>    
     <script type="text/javascript"> 
 	  
