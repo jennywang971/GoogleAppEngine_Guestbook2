@@ -9,6 +9,8 @@ body {
     height: 100%; 
     margin: 0px; 
     padding: 0px; 
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .greeting{
@@ -16,9 +18,15 @@ body {
 	color: white;
 	padding: 0.5em;
 	font-size: 20pt;
+    top: 0;
+	width: 100%;
+	position: absolute;
+	margin: 0;
+	z-index: 1;
 }
 
 #map-canvas { 
+	margin-top: 23px;
 	width: 100%;
 	height: 80%; 
 }
