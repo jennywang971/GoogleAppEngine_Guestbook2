@@ -19,71 +19,66 @@
     <meta charset="utf-8">       
     <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
     <script type="text/javascript" src="/javascripts/main.js"></script>        
-    <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?v=3&key=&sensor=true">
-    </script>    
-    <script type="text/javascript"> 
-	  
-		function initialize() {
-					
-			var myLatlng = new google.maps.LatLng(37.33152141760375,-122.04732071026367);   
-		   
-			var mapOptions = {
-			  center: myLatlng,
-			  zoom: 12
-			};
-			
-			map = new google.maps.Map(document.getElementById("map-canvas"),
-			  mapOptions);		
-						
-			var mrkID = "0";
-			var gstBkNm = guestbookNameString; //"default";
-			var msgbox = "msgbox_" + mrkID;	
-			var msglist = "msglist_" + mrkID;
-									
-			var contentString  = '#' + mrkID + '<div id="content">' +  	
-			  '<div class="msglist" id="'+ msglist +'"></div>' + '</div>' +
-			  '<textarea id="'+ msgbox +'" rows="2" cols="28" style="resize:none"></textarea>' +			  
-			  '<input type="button" value="Post" onclick="postAjaxRequest('+ 
-				"'" + msgbox + "', '" + mrkID + "', '" + gstBkNm + "', '" + msglist + "'" +')"/>';  
-			
-			var infowindow = new google.maps.InfoWindow({
-			  content: contentString
-			}); 
-			
-			var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-			var icons = {
-  				parking: {
-    				icon: iconBase + 'parking_lot_maps.png'
-  				},
-  				library: {
-    				icon: iconBase + 'library_maps.png'
-  				},
-  				info: {
-    				icon: iconBase + 'info-i_maps.png'
-  				}
-			};
-						   
-			var marker = new google.maps.Marker({       
-			  position: myLatlng,
-			  map: map,
-			  icon: icons['parking'].icon,			  
-			  title: 'Custom Marker!'
-			});    
-			
-			google.maps.event.addListener(marker, 'click', function() {
-			  selectedMarkerID = mrkID;  	
-			  infowindow.open(map, marker);
-			  getAjaxRequest();   
-			});        
-					
-			// Load the selected markers			
-			loadMarkers();       
-		}      
- 	
-		google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&key=&sensor=true"> </script>    
+    <script type="text/javascript">
+        function initialize() {
     
+            var myLatlng = new google.maps.LatLng(37.33152141760375,-122.04732071026367);   
+   
+            var mapOptions = {
+                center: myLatlng,
+                zoom: 12
+            };
+    
+            map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);       
+                
+            var mrkID = "0";
+            var gstBkNm = guestbookNameString; //"default";
+            var msgbox = "msgbox_" + mrkID; 
+            var msglist = "msglist_" + mrkID;
+
+            var contentString  = '#' + mrkID + '<div id="content">' +   
+                '<div class="msglist" id="'+ msglist +'"></div>' + '</div>' +
+                '<textarea id="'+ msgbox +'" rows="2" cols="28" style="resize:none"></textarea>' +              
+                '<input type="button" value="Post" onclick="postAjaxRequest('+ 
+                "'" + msgbox + "', '" + mrkID + "', '" + gstBkNm + "', '" + msglist + "'" +')"/>';  
+    
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            }); 
+    
+            var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+            var icons = {
+                parking: {
+                    icon: iconBase + 'parking_lot_maps.png'
+                },
+                library: {
+                    icon: iconBase + 'library_maps.png'
+                },
+                info: {
+                    icon: iconBase + 'info-i_maps.png'
+                }
+            }; 
+                   
+            var marker = new google.maps.Marker({       
+                position: myLatlng,
+                map: map,
+                icon: icons['parking'].icon,            
+                title: 'Custom Marker!'
+            });    
+    
+            google.maps.event.addListener(marker, 'click', function() {
+                selectedMarkerID = mrkID;     
+                infowindow.open(map, marker);
+                getAjaxRequest();   
+            });        
+            
+            // Load the selected markers            
+            loadMarkers();       
+        }      
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
   </head>
   <body>
   
@@ -109,13 +104,12 @@ to include your name with greetings you post.</p>
 <%
     }
 %>
-<p>Guestbook: ${fn:escapeXml(guestbookName)}</p>
+<p id="guestbook">Guestbook: ${fn:escapeXml(guestbookName)}</p>
 
 <script type="text/javascript">guestbookNameString = "${fn:escapeXml(guestbookName)}";</script>
-<!--<script type="text/javascript">alert(guestbookNameString);</script>-->
 
 <!-- Original -->
-<div id=oldMsgList>
+<div id="oldMsgList">
 <%
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);

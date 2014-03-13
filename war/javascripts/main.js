@@ -13,8 +13,6 @@ function loadMarkers() {
 		xmlHttpReq.open('GET', url, true); // last parameter is boolean async
     	xmlHttpReq.send(null);
     	
-    	
-    	
 	} catch (e) {
     	alert("Error: " + e);
 	}	
@@ -191,3 +189,4 @@ function httpCallBackFunction_postAjaxRequest() {
 		}	
 	}		
 }
+

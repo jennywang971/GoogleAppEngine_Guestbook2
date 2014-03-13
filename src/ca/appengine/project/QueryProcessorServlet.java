@@ -1,4 +1,4 @@
-package ca.appengine.project.test;
+package ca.appengine.project;
 
 import java.io.IOException;
 import java.util.List;
@@ -51,7 +51,6 @@ public class QueryProcessorServlet extends HttpServlet {
         String responseHTMLString = "";
         
         if (greetings.isEmpty()) {
-        	System.out.println(guestbookName + " has no messages");
         	responseHTMLString = "<div>'" + guestbookName + "' has no message for you.</div>";
         } else {
         	 for (Entity greeting : greetings) {
@@ -59,28 +58,26 @@ public class QueryProcessorServlet extends HttpServlet {
         		 String markerID = greeting.getProperty("markerID").toString();
         		 String date = greeting.getProperty("date").toString();
         		 
-        		 
         		 // Test output
-        		 System.out.println("reqMakerID: "+ reqMarkerID + " markerID: " 
-        		 + markerID + " postMag: " + postMsg);
-        		 
+/*        		 System.out.println("reqMakerID: "+ reqMarkerID + " markerID: " 
+        		 + markerID + " postMag: " + postMsg + "; date: " + date); */
         		        		    		 
-        		 responseHTMLString+="<div>";
+        		 responseHTMLString += "<div>"; 
         		 if (greeting.getProperty("user") == null) {
-        			 responseHTMLString+="<b>Anonymous</b>";
+        			 responseHTMLString += "<b>Anonymous</b>";
         		 } else {
         			 String nickname = greeting.getProperty("user").toString().split("@")[0];        			 
-        			 responseHTMLString+="<b>"+nickname+"</b>"; //greeting.getProperty("user").toString();        			        			 
+        			 responseHTMLString += "<b>"+nickname+"</b>";
         		 } 
-        		 responseHTMLString+="("+ date +")";
-        		 responseHTMLString+=": "; 
-        		 responseHTMLString+=greeting.getProperty("postMsg").toString();
-        		 responseHTMLString+="</div>";        		 
+        		 responseHTMLString += ": "; 
+        		 responseHTMLString += postMsg;
+        		 responseHTMLString += "<br/>("+ date +")";
+        		 responseHTMLString += "</div>";        		 
         	 }
         }
        
         resp.setContentType("text/html");
-        //resp.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
             
         // Test
         //String htmlString = "<div>" + responseHTMLString + "</div>";
