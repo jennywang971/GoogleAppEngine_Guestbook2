@@ -39,7 +39,7 @@
 
             var contentString  = '#' + mrkID + '<div id="content">' +   
                 '<div class="msglist" id="'+ msglist +'"></div>' + '</div>' +
-                '<textarea id="'+ msgbox +'" rows="2" cols="28" style="resize:none"></textarea>' +              
+                '<textarea id="'+ msgbox +'" rows="2" cols="20" style="resize:none"></textarea>' +              
                 '<input type="button" value="Post" onclick="postAjaxRequest('+ 
                 "'" + msgbox + "', '" + mrkID + "', '" + gstBkNm + "', '" + msglist + "'" +')"/>';  
     
