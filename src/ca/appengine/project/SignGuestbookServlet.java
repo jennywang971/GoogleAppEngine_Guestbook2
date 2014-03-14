@@ -1,4 +1,4 @@
-package ca.appengine.project.test;
+package ca.appengine.project;
 
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;

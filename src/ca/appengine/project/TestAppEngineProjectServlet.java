@@ -1,4 +1,4 @@
-package ca.appengine.project.test;
+package ca.appengine.project;
 
 import java.io.IOException;
 import javax.servlet.http.*;
